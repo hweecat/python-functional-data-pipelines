@@ -1,5 +1,7 @@
 # Designing Functional Data Pipelines in Python
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hweecat/python-functional-data-pipelines/HEAD)
+
 Exploring the use of functional programming in designing data pipelines with Python
 
 ## Prerequisites
@@ -7,6 +9,28 @@ Exploring the use of functional programming in designing data pipelines with Pyt
 - Python 3.10 and newer
 - pip 21.3.1
 - Docker
+
+## Getting Started
+
+**Note: This repo is not yet ready with official Binder support for Python 3.10 kernel. In the meantime, please clone the repo and run the Docker container based on the instructions below.**
+
+To build the Docker image:
+
+```
+docker build --tag fp-data . 
+```
+
+To run the Docker image:
+
+```
+docker run -it --rm -p 8888:8888 fp-data
+```
+
+To run the Docker image and launch JupyterLab on a browser:
+
+```
+docker run -it --rm -p 8888:8888 python-3.10-mybinder jupyter lab --ip=0.0.0.0 --port=8888
+```
 
 ## Description
 
