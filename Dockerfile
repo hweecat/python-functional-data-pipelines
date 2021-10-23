@@ -7,6 +7,10 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
+RUN pip install --no-cache-dir notebook
+RUN pip install --no-cache-dir jupyterlab
+
 COPY . .
 
-# CMD [ "python3", "-m" , "jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
+ENTRYPOINT [ "python3", "-m" ]
+CMD ["jupyter", "lab", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
