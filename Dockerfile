@@ -2,15 +2,7 @@
 
 FROM python:3.10-slim-buster
 
-WORKDIR /app
-
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
-
-RUN pip install --no-cache-dir notebook
-RUN pip install --no-cache-dir jupyterlab
-
-# For binder
+# Set non-root user for binder
 ARG NB_USER=jovyan
 ARG NB_UID=1000
 ENV USER ${NB_USER}
@@ -21,6 +13,16 @@ RUN adduser --disabled-password \
     --gecos "Default user" \
     --uid ${NB_UID} \
     ${NB_USER}
+
+# Set working directory
+WORKDIR ${HOME}
+
+# Install dependencies
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
+RUN pip install --no-cache-dir notebook
+RUN pip install --no-cache-dir jupyterlab
 
 # Make sure the contents of our repo are in ${HOME}
 COPY . ${HOME}
