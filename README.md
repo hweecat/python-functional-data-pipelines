@@ -29,7 +29,7 @@ docker run -it --rm -p 8888:8888 fp-data
 To run the Docker image and launch JupyterLab on a browser:
 
 ```
-docker run -it --rm -p 8888:8888 python-3.10-mybinder jupyter lab --ip=0.0.0.0 --port=8888
+docker run -it --rm -p 8888:8888 fp-data jupyter lab --ip=0.0.0.0 --port=8888
 ```
 
 ## Description
