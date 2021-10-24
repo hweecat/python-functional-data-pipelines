@@ -21,8 +21,8 @@ WORKDIR ${HOME}
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
-RUN pip install --no-cache-dir notebook
-RUN pip install --no-cache-dir jupyterlab
+RUN pip3 install --no-cache-dir notebook
+RUN pip3 install --no-cache-dir jupyterlab
 
 # Make sure the contents of our repo are in ${HOME}
 COPY . ${HOME}
